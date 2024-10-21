@@ -10,6 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class SecuritySpringApplication {
@@ -17,6 +18,8 @@ public class SecuritySpringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SecuritySpringApplication.class, args);
 	}
+        
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         
         // TESTING, SE PUEDEN HACER LAS CONSULTAS DESDE LA BASE DE DATOS
         // ESTO ES PARA AHORRAR TRABAJO
@@ -44,28 +47,28 @@ public class SecuritySpringApplication {
                 // Crear usuarios
                 UserEntity kalethUser = UserEntity.builder()
                         .username("kadanarpa")
-                        .password("2904")
+                        .password(passwordEncoder.encode("2904"))
                         .isEnabled(true)
                         .roles(Set.of(adminRole))
                         .build();
                 
                 UserEntity nicolleUser = UserEntity.builder()
                         .username("nicky")
-                        .password("0406")
+                        .password(passwordEncoder.encode("0406"))
                         .isEnabled(true)
                         .roles(Set.of(creatorRole))
                         .build();
                 
                 UserEntity marlovyUser = UserEntity.builder()
                         .username("marly.pv")
-                        .password("3006")
+                        .password(passwordEncoder.encode("3006"))
                         .isEnabled(true)
                         .roles(Set.of(editorRole))
                         .build();
                 
                 UserEntity elviraUser = UserEntity.builder()
                         .username("elvira")
-                        .password("26616")
+                        .password(passwordEncoder.encode("26616"))
                         .isEnabled(true)
                         .roles(Set.of(userRole))
                         .build();

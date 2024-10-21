@@ -25,6 +25,6 @@ public class TestAuthController {
     
     @GetMapping("/delete")
     public String delete() {
-        return "Delite";
+        return "Delete";
     }
 }
