@@ -1,6 +1,5 @@
 package co.edu.usco.SecuritySpring;
 
-import co.edu.usco.SecuritySpring.persistence.entity.PermissionEntity;
 import co.edu.usco.SecuritySpring.persistence.entity.RoleEntity;
 import co.edu.usco.SecuritySpring.persistence.entity.RoleEnum;
 import co.edu.usco.SecuritySpring.persistence.entity.UserEntity;
@@ -19,53 +18,27 @@ public class SecuritySpringApplication {
 		SpringApplication.run(SecuritySpringApplication.class, args);
 	}
         
+        // TESTING, SE PUEDEN HACER LAS CONSULTAS DESDE LA BASE DE DATOS
+        // ESTO ES PARA AHORRAR TRABAJO
         @Bean
         public CommandLineRunner init(UserRepository userRepo) {
             return args -> {
-                // Crear permisos
-                PermissionEntity createPermission = PermissionEntity.builder()
-                        .name("CREATE")
-                        .build();
-                
-                PermissionEntity readPermission = PermissionEntity.builder()
-                        .name("READ")
-                        .build();
-                
-                PermissionEntity updatePermission = PermissionEntity.builder()
-                        .name("UPDATE")
-                        .build();
-                
-                PermissionEntity deletePermission = PermissionEntity.builder()
-                        .name("DELETE")
-                        .build();
                 
                 // Crear roles
                 RoleEntity adminRole = RoleEntity.builder()
                         .name(RoleEnum.ADMIN)
-                        .permissions(Set.of(
-                                createPermission,
-                                readPermission,
-                                updatePermission,
-                                deletePermission))
                         .build();
                 
                 RoleEntity creatorRole = RoleEntity.builder()
                         .name(RoleEnum.CREATOR)
-                        .permissions(Set.of(
-                                createPermission,
-                                readPermission))
                         .build();
                 
                 RoleEntity editorRole = RoleEntity.builder()
                         .name(RoleEnum.EDITOR)
-                        .permissions(Set.of(
-                                readPermission,
-                                updatePermission))
                         .build();
                 
                 RoleEntity userRole = RoleEntity.builder()
                         .name(RoleEnum.USER)
-                        .permissions(Set.of(readPermission))
                         .build();
                 
                 // Crear usuarios
@@ -73,9 +46,6 @@ public class SecuritySpringApplication {
                         .username("kadanarpa")
                         .password("2904")
                         .isEnabled(true)
-                        .accountNoExpired(true)
-                        .accountNoLocked(true)
-                        .credentialNoExpired(true)
                         .roles(Set.of(adminRole))
                         .build();
                 
@@ -83,9 +53,6 @@ public class SecuritySpringApplication {
                         .username("nicky")
                         .password("0406")
                         .isEnabled(true)
-                        .accountNoExpired(true)
-                        .accountNoLocked(true)
-                        .credentialNoExpired(true)
                         .roles(Set.of(creatorRole))
                         .build();
                 
@@ -93,9 +60,6 @@ public class SecuritySpringApplication {
                         .username("marly.pv")
                         .password("3006")
                         .isEnabled(true)
-                        .accountNoExpired(true)
-                        .accountNoLocked(true)
-                        .credentialNoExpired(true)
                         .roles(Set.of(editorRole))
                         .build();
                 
@@ -103,9 +67,6 @@ public class SecuritySpringApplication {
                         .username("elvira")
                         .password("26616")
                         .isEnabled(true)
-                        .accountNoExpired(true)
-                        .accountNoLocked(true)
-                        .credentialNoExpired(true)
                         .roles(Set.of(userRole))
                         .build();
                 
@@ -113,6 +74,5 @@ public class SecuritySpringApplication {
                 userRepo.saveAll(List.of(kalethUser, nicolleUser, marlovyUser, elviraUser));
             };
         }
-        
 
 }
