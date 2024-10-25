@@ -1,6 +1,6 @@
 
 
-package co.edu.usco.SecuritySpring.persistence.entity;
+package co.edu.usco.Security.persistence.entity;
 
 public enum RoleEnum {
     

@@ -1,5 +1,5 @@
 
-package co.edu.usco.SecuritySpring.persistence.entity;
+package co.edu.usco.Security.persistence.entity;
 
 import jakarta.persistence.*;
 import java.util.HashSet;

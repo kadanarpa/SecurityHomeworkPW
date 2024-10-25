@@ -1,7 +1,7 @@
 
-package co.edu.usco.SecuritySpring.persistence.repository;
+package co.edu.usco.Security.persistence.repository;
 
-import co.edu.usco.SecuritySpring.persistence.entity.UserEntity;
+import co.edu.usco.Security.persistence.entity.UserEntity;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

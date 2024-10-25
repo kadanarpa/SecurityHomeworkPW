@@ -1,8 +1,9 @@
-package co.edu.usco.SecuritySpring.services;
 
-import co.edu.usco.SecuritySpring.persistence.entity.RoleEntity;
-import co.edu.usco.SecuritySpring.persistence.entity.UserEntity;
-import co.edu.usco.SecuritySpring.persistence.repository.UserRepository;
+package co.edu.usco.Security.service;
+
+import co.edu.usco.Security.persistence.entity.RoleEntity;
+import co.edu.usco.Security.persistence.entity.UserEntity;
+import co.edu.usco.Security.persistence.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
